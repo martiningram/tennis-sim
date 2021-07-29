@@ -5,6 +5,10 @@ To simulate matches, you can do the following:
 ```python
 from simulate import play_match
 
+def iid_spw_function(state):
+
+    return 0.6 if state['server'] == 'A' else 0.5
+
 n_runs = 10000
 winners = list()
 
@@ -20,19 +24,13 @@ for i in range(n_runs):
         'sets': {'A': 0, 'B': 0}
     }
 
-    winners.append(play_match(spw_fun, state))
+    winners.append(play_match(spw_fun=iid_spw_function, state=state))
 ```
 
-An important factor here is the `spw_fun`. For iid, you can do:
-
-```python
-def iid_spw_function(state):
-
-    return 0.6 if state['server'] == 'A' else 0.5
-```
-
-For example. Basically, given a state, the function has to return a probability
-for the server. You could also make this random:
+An important factor here is the `spw_fun`. Here, the function used is
+`iid_spw_function`, but you can use others. Basically, given a state, the
+function has to return a probability for the server. You could also make this
+random:
 
 ```python
 def random_spw_function(state):
