@@ -1,5 +1,4 @@
 import numpy as np
-from copy import deepcopy
 
 
 def iid_spw_function(state, server_win_probs):
