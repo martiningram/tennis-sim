@@ -24,7 +24,7 @@ for i in range(n_runs):
         'sets': {'A': 0, 'B': 0}
     }
 
-    winners.append(play_match(spw_fun=iid_spw_function, state=state))
+    winners.append(play_match(spw_function=iid_spw_function, state=state))
 ```
 
 An important factor here is the `spw_fun`. Here, the function used is
